@@ -78,7 +78,7 @@ $HOME/bin/kubectl delete -f $NAME-dp.yaml
 echo "Deployment of $NAME"
 if [[ -e $NAME-dp.yaml ]]
 then
-	$HOME/bin/kubectl apply -k .
+	$HOME/bin/kubectl apply -f $NAME-dp.yaml
 	sleep 3
 	$HOME/bin/kubectl get po | grep -i $NAME | grep -v srv
 else
