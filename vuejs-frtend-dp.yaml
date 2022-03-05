@@ -1,0 +1,36 @@
+#For k8s 1.7,apps/v1
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vuejs-frtend
+  labels:
+    app: vuejs-frtend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vuejs-frtend 
+  template:
+    metadata:
+      labels:
+        app: vuejs-frtend
+    spec:
+      containers:
+      - name: vuejs-frtend
+        image: 494307375889.dkr.ecr.ap-northeast-2.amazonaws.com/vuejs-frtend:latest
+        imagePullPolicy: Always
+        env:
+        ports:
+        - containerPort: 80
+          name: vuejs-frtend
+
+        volumeMounts:
+        - name: vuejs-frtend-persistent-storage
+          mountPath: /tmp
+      imagePullSecrets:
+      - name: ap-northeast-2-ecr-registry 
+
+      volumes:
+      - name: vuejs-frtend-persistent-storage
+        persistentVolumeClaim:
+          claimName: st-claim-for-vuejs-frtend-app

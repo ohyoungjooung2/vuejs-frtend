@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-vuejs-frtend
+  labels:
+    app: vuejs-frtend
+
+spec:
+  ports:
+    - port: 80
+  selector:
+    app: vuejs-frtend
+
+  type: NodePort
+  ports:
+  - port: 80
+    nodePort: 32223
+    targetPort: 80
+    protocol: TCP
+    name: http
