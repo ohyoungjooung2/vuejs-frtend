@@ -2,7 +2,7 @@ pipeline {
   agent any
   environment {
        KUBECONFIG="/home/oyj/.kube/config2"
-       npm=/fast/tst/node-v13.14.0-linux-x64/bin/npm
+       npm="/fast/tst/node-v13.14.0-linux-x64/bin/npm"
   }
 
 //  tools {
