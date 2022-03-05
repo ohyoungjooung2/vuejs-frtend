@@ -20,6 +20,11 @@ docker image rm $(docker images | grep -i "<none>" | awk '{print $3}') --force
 TAG=$(date +%s)
 docker build . -t $NAME:$TAG; docker images | grep $NAME
 docker tag $NAME:$TAG $ACCOUNT.dkr.ecr.ap-northeast-2.amazonaws.com/$NAME:latest
+if [[ $? != "0" ]]
+then
+	echo "tag failed exit"
+	exit 3
+fi
 docker image rm $(docker images | grep -i "<none>" | awk '{print $3}') --force
 
 #Retage latest to today date and delete latest
@@ -50,6 +55,12 @@ aws ecr list-images --repository-name $NAME;
 echo "Getting token"
 aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $ACCOUNT.dkr.ecr.$AWS_REGION.amazonaws.com
 docker push $ACCOUNT.dkr.ecr.ap-northeast-2.amazonaws.com/$NAME:latest
+echo $?
+if [[ $? != "0" ]]
+then
+	echo "Push failed exit"
+	exit 3
+fi
 aws ecr list-images --repository-name $NAME;
 
 #If docker build fails then exit!

@@ -22,7 +22,7 @@ pipeline {
             }
 
             steps {
-                sh 'echo build is done in docker!'
+                sh 'npm install'
             }
         }
 
