@@ -12,15 +12,15 @@ NAME="vuejs-frtend"
 #KCTL=$(which kubectl)
 echo 'TestingTesting'
 echo "Delete latest local image first"
-docker rm $ACCOUNT.dkr.ecr.ap-northeast-2.amazonaws.com/$NAME:latest
+docker rm $ACCOUNT.dkr.ecr.ap-northeast-2.amazonaws.com/$NAME:latest --force
 #Non tag or none name delete
-docker image rm $(docker images | grep -i "<none>" | awk '{print $3}')
+docker image rm $(docker images | grep -i "<none>" | awk '{print $3}') --force
 
 #Tag by date and HOur
 TAG=$(date +%s)
 docker build . -t $NAME:$TAG; docker images | grep $NAME
 docker tag $NAME:$TAG $ACCOUNT.dkr.ecr.ap-northeast-2.amazonaws.com/$NAME:latest
-docker image rm $(docker images | grep -i "<none>" | awk '{print $3}')
+docker image rm $(docker images | grep -i "<none>" | awk '{print $3}') --force
 
 #Retage latest to today date and delete latest
 #1. retag
