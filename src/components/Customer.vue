@@ -11,7 +11,7 @@
       <label>Sex: </label> {{this.customer.sex}}
     </div>
     <div>
-      <label>Active: </label> {{this.customer.active}}
+      <label>Active_Active!: </label> {{this.customer.active}}
     </div>
   
     <span v-if="this.customer.active"
