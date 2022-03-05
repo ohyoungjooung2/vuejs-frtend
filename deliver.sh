@@ -12,7 +12,7 @@ NAME="vuejs-frtend"
 #KCTL=$(which kubectl)
 echo 'TestingTesting'
 echo "Delete latest local image first"
-docker rm $ACCOUNT.dkr.ecr.ap-northeast-2.amazonaws.com/$NAME:latest --force
+docker image rm $ACCOUNT.dkr.ecr.ap-northeast-2.amazonaws.com/$NAME:latest --force
 #Non tag or none name delete
 docker image rm $(docker images | grep -i "<none>" | awk '{print $3}') --force
 
