@@ -5,6 +5,8 @@ AWS_REGION="ap-northeast-2"
 ACCOUNT="$ACCOUNT"
 NAME="vuejs-frtend"
 
+export KUBECONFIG="/home/oyj/.kube/config2"
+
 echo $PATH
 export PATH=$PATH:/fast/tst/node-v13.14.0-linux-x64/bin
 node="/fast/tst/node-v13.14.0-linux-x64/bin/node"
