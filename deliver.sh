@@ -6,6 +6,7 @@ ACCOUNT="$ACCOUNT"
 NAME="vuejs-frtend"
 
 echo $PATH
+export PATH=$PATH:/fast/tst/node-v13.14.0-linux-x64/bin
 node="/fast/tst/node-v13.14.0-linux-x64/bin/node"
 npm="/fast/tst/node-v13.14.0-linux-x64/bin/npm"
 echo "npm install to vue-cli"
