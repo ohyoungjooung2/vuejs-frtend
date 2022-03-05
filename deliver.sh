@@ -5,6 +5,8 @@ AWS_REGION="ap-northeast-2"
 ACCOUNT="$ACCOUNT"
 NAME="vuejs-frtend"
 
+echo "npm install to vue-cli"
+npm install
 #Build app
 #./mvnw clean install
 #Execute aws acr token get script
