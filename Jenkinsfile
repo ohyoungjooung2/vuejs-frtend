@@ -4,10 +4,10 @@ pipeline {
        KUBECONFIG="/home/oyj/.kube/config2"
   }
 
-#  tools {
-#   #maven 'maven36'
-#
-#  }
+//  tools {
+//   #maven 'maven36'
+//
+//  }
   
 
    options {
