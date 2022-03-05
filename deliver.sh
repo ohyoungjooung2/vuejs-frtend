@@ -74,17 +74,17 @@ else
    echo "kubectl work ok"
 fi
 #
-#$HOME/bin/kubectl delete -f $NAME-dp.yaml
-#echo "Deployment of $NAME"
-#if [[ -e $NAME-dp.yaml ]]
-#then
-#	$HOME/bin/kubectl apply -k .
-#	sleep 3
-#	$HOME/bin/kubectl get po | grep -i spboot| grep -v srv
-#else
-#	echo " $NAME-dp.yaml no exitst! exiitng!"
-#	exit 3
-#fi
+$HOME/bin/kubectl delete -f $NAME-dp.yaml
+echo "Deployment of $NAME"
+if [[ -e $NAME-dp.yaml ]]
+then
+	$HOME/bin/kubectl apply -k .
+	sleep 3
+	$HOME/bin/kubectl get po | grep -i $NAME | grep -v srv
+else
+	echo " $NAME-dp.yaml no exitst! exiitng!"
+	exit 3
+fi
 
 
 ##Default duration check time until service on.
