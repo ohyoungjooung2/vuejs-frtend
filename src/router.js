@@ -6,7 +6,7 @@ import SearchCustomers from "./components/SearchCustomers.vue";
 import Customer from "./components/Customer.vue";
  
 Vue.use(Router);
- 
+//comment test 
 export default new Router({
   mode: "history",
   routes: [
