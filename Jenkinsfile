@@ -1,13 +1,5 @@
 pipeline {
-  //agent any
-  agent  
-  {
-      docker {
-          image 'node:lts-buster-slim'
-          args '-p 3000:3000'
-
-        }
-    }
+  agent any
   
   environment {
        KUBECONFIG="/home/oyj/.kube/config2"
@@ -31,7 +23,7 @@ pipeline {
             }
 
             steps {
-                sh 'npm install'
+                sh '/fast/tst/node-v13.14.0-linux-x64/bin/npm install'
             }
         }
 
