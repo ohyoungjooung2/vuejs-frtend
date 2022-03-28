@@ -14,7 +14,6 @@ npm="/fast/tst/node-v13.14.0-linux-x64/bin/npm"
 echo "npm install to vue-cli"
 $npm install
 #Build app
-#./mvnw clean install
 #Execute aws acr token get script
 . ./get_aws_token_ecr.sh
 #KCTL=$(which kubectl)
